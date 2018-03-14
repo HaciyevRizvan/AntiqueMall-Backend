@@ -87,7 +87,7 @@
 
                                 @Html.ActionLink("1", "Vase", "Main", routeValues: null, htmlAttributes: new { @class = "first" })
                                 @Html.ActionLink("2", "Vase2", "Main", routeValues: null, htmlAttributes: new { @class = "second" })
-                                <a href="Vase2.html">
+                                <a href="@Url.Action("Vase2","Main")">
                                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                 </a>
                             </p>

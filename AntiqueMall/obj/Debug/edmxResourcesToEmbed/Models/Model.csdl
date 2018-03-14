@@ -703,5 +703,35 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="select" EntitySet="selects" />
     </AssociationSet>
+    <EntitySet Name="Aboutfs" EntityType="AnticDataModel.Aboutf" />
+    <EntitySet Name="Teams" EntityType="AnticDataModel.Team" />
   </EntityContainer>
+  <EntityType Name="Aboutf">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aboutem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="icontitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="icontext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="profession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="persinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

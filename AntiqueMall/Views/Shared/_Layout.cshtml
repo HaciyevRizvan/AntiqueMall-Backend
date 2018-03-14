@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -22,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-1 logo_part">
-                    <a href="Home.html" id="logo">
+                    <a href="@Url.Action("Home","Main")" id="logo">
                         <img src="~/Public/images/Anticlogo.png" alt="">
                     </a>
                 </div>
@@ -52,11 +53,20 @@
                             <li class="latest_l">
                                 <a href="" title="View Cart">
                                     <i class="fa fa-shopping-bag place"></i>
-                                    <span>0</span> Item(s)
+                                    <span class="itemnumber">0</span> Item(s)
                                 </a>
-                                <div class="itemB"><p>No products in the cart.</p></div>
-                            </li>
-
+                                <div class="itemB" id="add">
+                                    <p>No products in the cart.</p>
+                                    
+                                            <div class="static">
+                                                <hr>
+                                                <h5>Subtotal: $187.00</h5>
+                                                <hr>
+                                                <span><a class="btn btn-success btn-responsive btn_res" href="#">ViewCart</a></span>
+                                                <span><a class="btn btn-success btn-responsive btn_res" href="#">CHECKOUT</a></span>
+                                            </div>
+                                        </div>
+                       </li>
                         </ul>
 
                     </nav>
@@ -172,10 +182,10 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="Blog.html">blog</a>
+                                @Html.ActionLink("Blog", "Blog", "Main")
                             </li>
                             <li>
-                                <a href="Contact.html">contact</a>
+                                @Html.ActionLink("Contact", "Contact", "Main")
                             </li>
                         </ul>
                     </nav>
@@ -318,7 +328,7 @@
                 <i class="fa fa-times close_r" aria-hidden="true"></i>
             </div>
         </div>
-        <div class="login_page">
+        <form class="login_page">
             <div class="reg">
                 <div class="reg_padd">
                     <p class="hidden_p">ERROR: All fields are required.</p>
@@ -336,7 +346,7 @@
                 </div>
                 <i class="fa fa-times close_r" aria-hidden="true"></i>
             </div>
-        </div>
+        </form>
         <div class="reset_page">
             <div class="reg">
                 <div class="reg_padd">
@@ -393,7 +403,7 @@
                                         <p>Support@yourdomain.com</p>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://netbasejsc.com/">
                                             <i class="fa fa-globe" aria-hidden="true"></i>https://netbasejsc.com/
                                         </a>
                                     </li>
@@ -432,13 +442,13 @@
                                 <h3>about market</h3>
                                 <ul class="info">
                                     <li>
-                                        <a href="Contact.html">Contact</a>
+                                        @Html.ActionLink("Contact", "Contact", "Main")
                                     </li>
                                     <li>
-                                        <a href="About.html">About Us</a>
+                                        @Html.ActionLink("About Us", "Aboutus", "Main")
                                     </li>
                                     <li>
-                                        <a href="FAQ1.html">FAQ</a>
+                                        @Html.ActionLink("FAQ", "FAQ1", "Main")
                                     </li>
                                     <li>
                                         <a href="#">Private Police</a>
@@ -457,16 +467,16 @@
                                 <h3>COLLECTION ANTIQUE</h3>
                                 <ul class="info">
                                     <li>
-                                        <a href="#">Clock</a>
+                                        @Html.ActionLink("Clock", "Clock", "Main")
                                     </li>
                                     <li>
-                                        <a href="#">Painting</a><i class="fa fa-angle-down"></i>
+                                        @Html.ActionLink("Painting", "Painting", "Main")
                                     </li>
                                     <li>
-                                        <a href="#">Tableware</a>
+                                        @Html.ActionLink("Tableware", "Tableware", "Main")
                                     </li>
                                     <li>
-                                        <a href="#">Vase</a>
+                                        @Html.ActionLink("Vase", "Vase", "Main")
                                     </li>
                                 </ul>
                             </div>
@@ -482,7 +492,7 @@
                                         <a href="#">Compensation First</a>
                                     </li>
                                     <li>
-                                        <a href="#">My Account</a>
+                                        @Html.ActionLink("My Account", "UserPage", "Main")
                                     </li>
                                     <li>
                                         <a href="#">Return Policy</a>
@@ -523,6 +533,8 @@
             crossorigin="anonymous"></script>
     <script src="~/Public/script/jquery-3.2.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="~/Public/jquery.numscroller-1.0.js"></script>
+    <script src="~/Public/script/numscroll.js"></script>
     <script src="~/Public/script/script.js"></script> 
  
 </body>

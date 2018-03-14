@@ -10,25 +10,44 @@ namespace AntiqueMall.Controllers
     {
         private AnticDataEntities db = new AnticDataEntities();
         // GET: Main
-        public ActionResult CheckLog(string user,string pass)
-        {
-            var linq = db.users.Where(m => m.password == pass && m.name == user).FirstOrDefault();
+        public ActionResult CheckLog(string use,string pass)
+        {   
+
+            var linq = db.users.Where(m => m.password == pass && m.name == use).FirstOrDefault();
             if (linq != null)
             {
-                return Content("Successfull");
+                Session["username"] = use;
+                return JavaScript("window.location = 'http://localhost:51618/Main/UserPage'");
             }
             else
             {
-                return Content("ERROR: All fields are required");
-
+                return Content("All Fields are required");
             }
         }
-
         public ActionResult Home1(string prod)
         {
             int a = Convert.ToInt32(prod);
             Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
             return PartialView("ProductPartial",list);
+        }
+        public ActionResult view(string prod)
+        {
+            ViewBag.product = db.Products.Distinct().OrderByDescending(c => c.product_type).ToList().Take(5);
+            int a = Convert.ToInt32(prod);
+            Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
+            return PartialView("QuickView", list);
+        }
+        public ActionResult itemAdd(string prod)
+        {
+            int a = Convert.ToInt32(prod);
+            Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
+            return PartialView("itemPartial", list);
+        }
+        public ActionResult remove(string prod)
+        {
+            int a = Convert.ToInt32(prod);
+            Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
+            return PartialView("itemPartial", list);
         }
         public ActionResult Home()
         {
@@ -62,6 +81,8 @@ namespace AntiqueMall.Controllers
             ViewBag.slide = db.fsecslides.ToList().Take(1);
             ViewBag.paint = db.Products.OrderByDescending(a => a.select_id).ToList().Take(12);
             ViewBag.tags = db.Product_tags.ToList();
+            
+            ViewBag.productr = db.Products.ToList().Take(1);
             return View();        
         }
         public ActionResult Painting2()
@@ -178,7 +199,7 @@ namespace AntiqueMall.Controllers
         }
         public ActionResult Categories()
         {
-            ViewBag.product = db.Products.Where(c =>c.product_type=="drink").ToList().Distinct().Take(5);
+            ViewBag.product = db.Products.OrderByDescending(a => a.product_id).ToList().Distinct().Take(5);
             ViewBag.productr = db.Products.ToList().Take(1);
             ViewBag.desc = db.Descriptions.ToList();
             ViewBag.desctext = db.Descriptions.ToList();
@@ -194,7 +215,40 @@ namespace AntiqueMall.Controllers
         }
         public ActionResult UserPage()
         {
-           
+            return View();
+        }
+        public ActionResult Aboutus()
+        {
+            ViewBag.aboutfin = db.Aboutfs.ToList().Take(1);
+            ViewBag.about = db.Aboutfs.ToList().Take(2);
+            ViewBag.aboutsec = db.Aboutfs.ToList().Skip(2).Take(2);
+            ViewBag.teamt = db.Teams.ToList().Take(1);
+            ViewBag.teampers = db.Teams.ToList();
+            ViewBag.fblog = db.Blogs.Where(c => c.id == 1).ToList();
+            ViewBag.blog = db.Blogs.Where(c => c.id == 2).ToList();
+            return View();
+        }
+        public ActionResult BlogView()
+        {
+            ViewBag.BlogView = db.Blogs.ToList().Take(1);
+            return View();
+        }
+        public ActionResult BlogView13()
+        {
+            ViewBag.BlogView = db.Blogs.ToList().Skip(1).Take(1);
+            return View();
+        }
+        public ActionResult BlogView15()
+        {
+            ViewBag.BlogView = db.Blogs.ToList().Skip(2).Take(1);
+            return View();
+        }
+        public ActionResult HelloWorld()
+        {
+            return View();
+        }
+        public ActionResult viewCart()
+        {
             return View();
         }
         public ActionResult Contact()

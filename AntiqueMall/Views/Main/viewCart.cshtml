@@ -1,0 +1,80 @@
+﻿
+<section id=viewCart>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table">
+                    <thead class="thead">
+                        <tr class="tr">
+                            <th class="product-thumb">Product</th>
+                            <th class="product-name">&nbsp;</th>
+                            <th class="price">Price</th>
+                            <th class="quantity">Quantity</th>
+                            <th class="total">Total</th>
+                            <th class="remove">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <td class="product_img">
+                        <a href="#">
+                            <img src="~/Public/images/orientalist3.jpg">
+                        </a>
+                    </td>
+                    <td class="product_name main" data-title="">
+                        <a href="#" class="f_name">Porcelain plaque</a>
+                    </td>
+                    <td class="product_price main" data-title="">
+                        <span class="woocommerce-Price-currencySymbol">$</span>
+                        <span>88.00</span>
+                    </td>
+                    <td class="product_quantity" data-title="Quantity">
+                        <div class="nb-quantity style-1">
+                            <div class="num">
+                                <input type="number" id="number" value="1" />
+                                <button id="plus" data-inline="true">+</button>
+                                <button id="minus" data-inline="true">-</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="product-subtotal main" data-title="">
+                        <span class="">
+                            <span class="">$</span>176.00
+                        </span>
+                    </td>
+                    <td class="cash" data-title="">
+                        <i class="fa fa-trash-o"></i>
+                    </td>
+                    <tr>
+                        <td colspan="6" class="actions">
+                            <a class="btn btn-success btn-responsive btn_res" href="#">Update Cart</a>
+                            <input type="hidden" id="rein">
+                            <input type="hidden">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3 class="total">Cart totals</h3>
+                <div class="cart_total">
+                    <div class="first">Subtotal</div>
+                    <div class="first_s">$88.00</div>
+                    <div class="lines"></div>
+                    <div class="second">Total</div>
+                    <div class="second_s">$88.00</div>
+                    <div><a class="btn btn-success btn-responsive btn_res" href="#">PROCEED TO CHECKOUT</a></div>
+
+                </div>
+                <div class="main_t">
+                    <h3 class="total">Coupon</h3>
+                    <div class="coupon">
+                        <input type="text" placeholder="Coupen code">
+
+                        <div><a class="btn btn-success btn-responsive btn_res" href="#">APPLY COUPON</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

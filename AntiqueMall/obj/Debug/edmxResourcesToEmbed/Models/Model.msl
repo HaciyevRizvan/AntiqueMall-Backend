@@ -359,5 +359,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Aboutfs">
+      <EntityTypeMapping TypeName="AnticDataModel.Aboutf">
+        <MappingFragment StoreEntitySet="Aboutf">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="icontext" ColumnName="icontext" />
+          <ScalarProperty Name="icontitle" ColumnName="icontitle" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="emphoto" ColumnName="emphoto" />
+          <ScalarProperty Name="Aboutem" ColumnName="Aboutem" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="AnticDataModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="persinfo" ColumnName="persinfo" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="emphoto" ColumnName="emphoto" />
+          <ScalarProperty Name="emtitle" ColumnName="emtitle" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -78,13 +78,14 @@
                     </div>
                     <div class="change_page">
                         <p class="number">
-                            <a href="Shop.html">
+                            <a href="@Url.Action("Shop","Main")">
                                 <i class="fa fa-chevron-left" aria-hidden="true"></i>
                             </a>
                             @Html.ActionLink("1", "Shop", "Main", routeValues: null, htmlAttributes: new { @class = "second" })
                             @Html.ActionLink("2", "Shop2", "Main", routeValues: null, htmlAttributes: new { @class = "first" })
                             @Html.ActionLink("3", "Shop3", "Main", routeValues: null, htmlAttributes: new { @class = "second" })
-                            <a href="Shop3.html">
+                           
+                            <a href="@Url.Action("Shop3","Main")">
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </a>
                         </p>

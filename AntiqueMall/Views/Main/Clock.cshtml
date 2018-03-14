@@ -85,7 +85,7 @@
 
                             @Html.ActionLink("1", "Clock", "Main", routeValues: null, htmlAttributes: new { @class = "first" })
                             @Html.ActionLink("2", "Clock2", "Main", routeValues: null, htmlAttributes: new { @class = "second" })
-                            <a href="Clock2.html">
+                            <a href="@Url.Action("Clock2","Main")">
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </a>
                         </p>

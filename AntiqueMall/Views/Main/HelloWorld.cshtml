@@ -3,15 +3,18 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 padd">
-                @foreach (fsecslide item in ViewBag.slide)
-                {
-                    <div class="slide" style="background:url(@item.photo);">
-                        <div class="text">
-                            <h1>@item.title</h1>
-                            <p>@item.text</p>
-                        </div>
+                <div class="slide">
+                    <div class="text">
+                        <h1 class="ViewH">Hello World!</h1>
+                        <span class=date>
+                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                            <time>SEPTEMBER 28, 2017</time>
+                            <span>
+                                <i class="fa fa-tags" aria-hidden="true"></i>1 MINUTE READ
+                            </span>
+                            </time>
                     </div>
-                }
+                </div>
             </div>
         </div>
     </div>
@@ -21,43 +24,65 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-               @foreach (Blog item in ViewBag.blog)
-               {
-                    <div class="headline">
-
-                        <a href="#" class="head">@item.info_title</a>
-                        <ul class="links">
-                            <li>
-                                <i class="fa fa-user"></i>
-                                <a href="#">@item.user_type</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>@item.date
-                            </li>
-                            <li>1 minute read</li>
-                            <li>
-                                <i class="fa fa-comments"></i>
-                                <a href="#">Leave a comment</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                
-                
-                <img src="@item.photo" alt="">
-                <p>
-                    @item.text.Substring(0,200)...
-                </p>
-
-                <a class="btn btn-success btn-responsive btn_res" href="#">
-                    View Post
-                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                </a>
+                <p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
                 <div class="lines">
 
                 </div>
-}
-              
+                <span class="changepage">
+
+                   @Html.ActionLink("Intelligent Design: 15 Gorgeous Rooms for Bookworms", "BlogView15", "Main")
+                    <i class="fa fa-chevron-right posrig" aria-hidden="true"></i>
+                    <p class="next">next post</p>
+                </span>
+                <form action="">
+
+
+                    <div class="postBox">
+                        <h4>One comment on “Hello world!”</h4>
+
+                        <span class="W">
+                            <span><img src="~/Public/images/w.png" alt=""></span>
+                            <a href="#" class="firstpost">
+                                A WordPress Commenter says:
+                            </a>
+                            <a>September 28, 2017 at 2:10 am</a>
+                        </span>
+                        <p class="wmpost">
+                            Hi, this is a comment.
+                        </p>
+                        <p class="wsmpost">
+                            To get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.
+                            Commenter avatars come from Gravatar.
+                        </p>
+                        <p class="wpost">
+                            REPLY
+                        </p>
+                        <p class="fborpost">
+                            Leave your comment <a href="#">Cancel reply</a>
+                        </p>
+                        <textarea name="" id="" rows="7" placeholder="Your comment"></textarea>
+                        <p class="fpost">
+                            <span>Name*</span>
+                            <label for="name"></label>
+                            <input type="text" class="postin">
+                        </p>
+                        <p class="fpost">
+                            <span>Email*</span>
+                            <label for="email"></label>
+                            <input type="text" class="postin">
+                        </p>
+                        <p class="fpost">
+                            <span>Website</span>
+                            <label for="website"></label>
+                            <input type="text" class="postin">
+                        </p>
+                        <a class="btn btn-success btn-responsive btn_res" href="#" target="Blank">
+                            Post Comment
+                        </a>
+                    </div>
+
+                </form>
+
             </div>
             <div class="col-md-4">
                 <div class="search_part">
@@ -73,20 +98,19 @@
                     </div>
                     <ul>
                         <li>
-                            <a href="#">16 Delicious Dining Rooms</a>
-
+                            @Html.ActionLink("16 Delicious Dining Rooms","BlogView","Main")
                         </li>
                         <div class="lines"></div>
                         <li>
-                            <a href="#">13 Spaces with High-Style Ceilings</a>
+                            @Html.ActionLink("13 Spaces with High-Style Ceilings", "BlogView13", "Main")
                         </li>
                         <div class="lines"></div>
                         <li>
-                            <a href="#">Intelligent Design: 15 Gorgeous Rooms for Bookworms</a>
+                            @Html.ActionLink("Intelligent Design: 15 Gorgeous Rooms for Bookworms", "BlogView15", "Main")
                         </li>
                         <div class="lines"></div>
                         <li>
-                            <a href="#">Hello world!</a>
+                            @Html.ActionLink("Hello world!", "HelloWorld", "Main")
                         </li>
                     </ul>
                 </div>

@@ -86,35 +86,46 @@ $(document).ready(function () {
     $("#log").click(function () {
         var username = $(".username").val();
         var password = $(".password").val();
+        if (username != null && password != null) {
+            $.ajax({
+                type: "Get",
+                data: {
+                    pass: password,
+                    use: username,
+                },
+                url: "http://localhost:51618/Main/CheckLog",
+                contentType: "Html",
+                success: function (re) {
 
-        $.ajax({
-            type: "Get",
-            data: {
-                pass: password,
-                user: username,
-            },
-            url: "http://localhost:51618/Main/CheckLog",
-            contentType: "Html",
-            success: function (re) {
-                alert(re)
-            }
-            
-        })
+                    return JavaScript("location.reload(true)");
+                }
 
+
+            })
+        }
+        
+        $(".hidden_p").show();
     })
+   
     // ----------------------------compare----------------------------------
    
     $(".fCompare").click(function () {
         $(".compare").fadeIn();
-        return false;
     })
     $(window).click(function (event) {
         if (event.target.className == "compare") {
             $(".compare").fadeOut(500);
+            $(".quickview").fadeOut();
+        }
+    });
+    $(window).click(function (event) {
+        if (event.target.className == "quickview") {
+            $(".quickview").fadeOut(500);
         }
     });
     $(".close_r").click(function () {
         $(".compare").fadeOut();
+        $(".quickview").fadeOut();
     })
     
     $(".fCompare").click(function () {
@@ -132,13 +143,69 @@ $(document).ready(function () {
 
         })
     })
-
-    $(".removeV").click(function () {
-        alert("Salam");
+    $(".fQuickview").click(function () {
+        $("#Selec").fadeIn();
        
     })
+    $(".fQuickview").click(function () {
+        var a = $(this).attr("dataset");
+        $.ajax({
+            type: "Get",
+            data: {
+                prod: a,
+            },
+            url: "http://localhost:51618/Main/view/",
+            contentType: "Html",
+            success: function (res) {
+                $("#Selec").html(res)
+            }
+        })
+    })
 
-    //---------------------------------------- resize function--------------------------------
+    $(".removeV").click(function () {
+        $(".visibleBox").hide();
+        $(".visLeft").hide();
+        $(".noproduct").fadeIn(400);
+    })
+    //-----------------item adding-----------------------//
+    $(".addItem").click(function () {
+        var a = $(this).attr("dataset");
+        $.ajax({
+            type: "Get",
+            data: {
+                prod: a,
+            },
+            url: "http://localhost:51618/Main/itemAdd/",
+            contentType: "Html",
+            success: function (res){
+                $("#add").append(res)
+                $(".itemB p").css({ "display": "none" }); 
+                $(".main").css({ "display": "block" }); 
+
+            }
+        })
+    });
+    $(".main i").click(function () {
+        alert("clicked")
+        var a = $(this).attr("dataset");
+        $.ajax({
+            type: "Get",
+            data: {
+                prod: a,
+            },
+            url: "http://localhost:51618/Main/remove/",
+            contentType: "Html",
+            success: function (res) {
+                $("#add").hide(res)
+                $(".main").css({ "display": "none" });
+                if ($("#add").innerHTML == null) {
+                    $(".itemB p").css({ "display": "block" });
+                }
+            }
+        })
+    });
+ 
+    //---------------------------------------- resize function--------------------------------//
     function sliderInit() {
         slideC = $(".slide_c img").width($(".slider").width());
         newwidth = $(".slide_c").width();
@@ -172,7 +239,6 @@ $(document).ready(function () {
             small = smallwidth * (smallength - 1);
             prev = length;
             $(".big_box").css({ "visibility": "visible" });
-            $("html").css({ "overflow": "hidden" });
             return false;
             $(".slide_s:last-child").addClass("actives")
         }
@@ -236,7 +302,7 @@ $(document).ready(function () {
             prev = 0;
 
             $(".big_box").css({ "visibility": "visible" });
-            $("html").css({ "overflow": "hidden" });
+     
 
         }
         $(".slide_c img").css({ "marginLeft": -margin, "transition": "0.3s ease" })
@@ -451,7 +517,7 @@ $(".checkB").click(function(){
 
         }
     });
-    images = document.querySelectorAll('#slider .slider_in')
+   images = document.querySelectorAll('#slider .slider_in')
     var index = 0;
     function reset() {
         for (i = 0; i < images.length; i++) {

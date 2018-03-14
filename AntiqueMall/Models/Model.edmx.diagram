@@ -54,6 +54,8 @@
         <AssociationConnector Association="AnticDataModel.FK_Products_selectTableware" ManuallyRouted="false" />
         <AssociationConnector Association="AnticDataModel.FK_Products_vaseselect" ManuallyRouted="false" />
         <AssociationConnector Association="AnticDataModel.FK_select_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AnticDataModel.Aboutf" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AnticDataModel.Team" Width="1.5" PointX="7.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

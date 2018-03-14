@@ -4,7 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AnticDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AnticDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aboutf">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aboutem" Type="nvarchar" MaxLength="50" />
+          <Property Name="emphoto" Type="nvarchar(max)" />
+          <Property Name="text" Type="nvarchar(max)" />
+          <Property Name="icon" Type="nvarchar" MaxLength="50" />
+          <Property Name="icontitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="icontext" Type="nvarchar(max)" />
+          <Property Name="photo" Type="nvarchar(max)" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="id" />
@@ -311,6 +325,20 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emtitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="emphoto" Type="nvarchar(max)" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="photo" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="profession" Type="nvarchar" MaxLength="50" />
+          <Property Name="persinfo" Type="nvarchar(max)" />
+          <Property Name="link" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="id" />
@@ -564,6 +592,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AnticDataModelStoreContainer">
+          <EntitySet Name="Aboutf" EntityType="Self.Aboutf" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Billing" EntityType="Self.Billing" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
@@ -592,6 +621,7 @@
           <EntitySet Name="StartSelling" EntityType="Self.StartSelling" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Submenu" EntityType="Self.Submenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vaseselect" EntityType="Self.vaseselect" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Billing_Cart" Association="Self.FK_Billing_Cart">
@@ -671,8 +701,7 @@
             <End Role="select" EntitySet="select" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AnticDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1379,7 +1408,37 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="select" EntitySet="selects" />
           </AssociationSet>
+          <EntitySet Name="Aboutfs" EntityType="AnticDataModel.Aboutf" />
+          <EntitySet Name="Teams" EntityType="AnticDataModel.Team" />
         </EntityContainer>
+        <EntityType Name="Aboutf">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aboutem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="icontitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="icontext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="profession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="persinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1741,6 +1800,36 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="category" ColumnName="category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aboutfs">
+            <EntityTypeMapping TypeName="AnticDataModel.Aboutf">
+              <MappingFragment StoreEntitySet="Aboutf">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="icontext" ColumnName="icontext" />
+                <ScalarProperty Name="icontitle" ColumnName="icontitle" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="emphoto" ColumnName="emphoto" />
+                <ScalarProperty Name="Aboutem" ColumnName="Aboutem" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="AnticDataModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="persinfo" ColumnName="persinfo" />
+                <ScalarProperty Name="profession" ColumnName="profession" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="emphoto" ColumnName="emphoto" />
+                <ScalarProperty Name="emtitle" ColumnName="emtitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -55,5 +55,7 @@ namespace AntiqueMall.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<vaseselect> vaseselects { get; set; }
+        public virtual DbSet<Aboutf> Aboutfs { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
     }
 }

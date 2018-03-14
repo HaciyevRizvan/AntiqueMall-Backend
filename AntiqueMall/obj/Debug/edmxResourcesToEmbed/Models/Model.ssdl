@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AnticDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aboutf">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aboutem" Type="nvarchar" MaxLength="50" />
+    <Property Name="emphoto" Type="nvarchar(max)" />
+    <Property Name="text" Type="nvarchar(max)" />
+    <Property Name="icon" Type="nvarchar" MaxLength="50" />
+    <Property Name="icontitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="icontext" Type="nvarchar(max)" />
+    <Property Name="photo" Type="nvarchar(max)" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Admin">
     <Key>
       <PropertyRef Name="id" />
@@ -306,6 +320,20 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="emtitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="emphoto" Type="nvarchar(max)" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="photo" Type="nvarchar(max)" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="profession" Type="nvarchar" MaxLength="50" />
+    <Property Name="persinfo" Type="nvarchar(max)" />
+    <Property Name="link" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="users">
     <Key>
       <PropertyRef Name="id" />
@@ -559,6 +587,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="AnticDataModelStoreContainer">
+    <EntitySet Name="Aboutf" EntityType="Self.Aboutf" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Billing" EntityType="Self.Billing" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
@@ -587,6 +616,7 @@
     <EntitySet Name="StartSelling" EntityType="Self.StartSelling" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Submenu" EntityType="Self.Submenu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vaseselect" EntityType="Self.vaseselect" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Billing_Cart" Association="Self.FK_Billing_Cart">

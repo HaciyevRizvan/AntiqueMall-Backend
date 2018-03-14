@@ -1,4 +1,4 @@
-﻿
+﻿<html>
 <body>
 
     <section id="userPage">
@@ -30,7 +30,9 @@
                 </div>
                 <div class="col-md-8">
                     <div class="userDesc">
-
+                   <h5>Hello @Session["username"] (not @Session["username"]? <a href="@Url.Action("Home","Main")" class="logout">Log out</a>)</h5>
+                   <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses and edit your password and 
+                    account details.</p>
                     </div>
                 </div>
             </div>

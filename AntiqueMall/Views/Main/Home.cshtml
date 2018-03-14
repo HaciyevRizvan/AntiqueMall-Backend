@@ -24,7 +24,6 @@
                                         {
                                             <li>@item.title[i]</li>
                                         }
-
                                     }
                                 </ul>
                                 <p>@item.text</p>
@@ -110,7 +109,7 @@
 
                                 <div class="box" dataset="@item.product_id">
                                     <ul>
-                                        <li>
+                                        <li dataset="@item.product_id" class="fQuickview">
                                             <a href="#">
                                                 <i class="fa fa-search"></i>
                                             </a>
@@ -125,7 +124,7 @@
                                                 <i class="fa fa-heart-o" aria-hidden="true"></i>
                                             </a>
                                         </li>
-                                        <li>
+                                        <li dataset="@item.product_id" class="addItem">
                                             <a href="#">
                                                 <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                             </a>
@@ -156,7 +155,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -199,7 +198,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -240,7 +239,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -283,7 +282,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -319,6 +318,9 @@
         <div class="compare" id="choos">
  
         </div>
+        <div class="quickview" id="Selec">
+
+        </div>
     </section>
     <section id="banner">
         <div class="container">
@@ -327,11 +329,13 @@
                 @foreach (Photo item in ViewBag.banner)
                 {
                     <div class="col-md-6 col-sm-6 col-xs-12 top">
-                        <div class="img_box">
-                            <a href="@item.link" target="_blank">
+                        <a href="@item.link" target="_blank">
+                            <div class="img_box">
+
                                 <img src="@item.photos_path" alt="">
-                            </a>
-                        </div>
+                            </div>
+                        </a>
+                       
                     </div>
                 }
 
@@ -439,7 +443,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -482,7 +486,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -523,7 +527,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -605,7 +609,7 @@
                             </div>
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview"> 
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -637,6 +641,10 @@
             View More
             <i class="fa fa-angle-double-right right" aria-hidden="true"></i>
         </a>
+        <div class="quickview" id="Selec">
+
+        </div>
+
     </section>
     <section id=gallery>
         <div class="container">
