@@ -17,28 +17,51 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Most_given_questions
         public ActionResult Index()
         {
-            return View(db.Most_given_questions.ToList());
+            if (Session["Aloged"] != null)
+            {
+                return View(db.Most_given_questions.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+  
         }
 
         // GET: Admin/Most_given_questions/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Most_given_questions most_given_questions = db.Most_given_questions.Find(id);
+                if (most_given_questions == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(most_given_questions);
             }
-            Most_given_questions most_given_questions = db.Most_given_questions.Find(id);
-            if (most_given_questions == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(most_given_questions);
+   
         }
 
         // GET: Admin/Most_given_questions/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["Aloged"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            } 
         }
 
         // POST: Admin/Most_given_questions/Create
@@ -61,16 +84,23 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Most_given_questions/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Most_given_questions most_given_questions = db.Most_given_questions.Find(id);
+                if (most_given_questions == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(most_given_questions);
             }
-            Most_given_questions most_given_questions = db.Most_given_questions.Find(id);
-            if (most_given_questions == null)
+            else
             {
-                return HttpNotFound();
-            }
-            return View(most_given_questions);
+                return RedirectToAction("Login", "AdminAccount");
+            }    
         }
 
         // POST: Admin/Most_given_questions/Edit/5
@@ -92,16 +122,23 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Most_given_questions/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Most_given_questions most_given_questions = db.Most_given_questions.Find(id);
+                if (most_given_questions == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(most_given_questions);
             }
-            Most_given_questions most_given_questions = db.Most_given_questions.Find(id);
-            if (most_given_questions == null)
+            else
             {
-                return HttpNotFound();
-            }
-            return View(most_given_questions);
+                return RedirectToAction("Login", "AdminAccount");
+            }   
         }
 
         // POST: Admin/Most_given_questions/Delete/5

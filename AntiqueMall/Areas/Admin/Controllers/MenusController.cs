@@ -17,30 +17,57 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Menus
         public ActionResult Index()
         {
-            var menus = db.Menus.Include(m => m.Submenu);
-            return View(menus.ToList());
+            if (Session["Aloged"] != null)
+            {
+                var menus = db.Menus.Include(m => m.Submenu);
+                return View(menus.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+
+            
         }
 
         // GET: Admin/Menus/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Menu menu = db.Menus.Find(id);
+                if (menu == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(menu);
             }
-            Menu menu = db.Menus.Find(id);
-            if (menu == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(menu);
+ 
         }
 
         // GET: Admin/Menus/Create
         public ActionResult Create()
         {
-            ViewBag.sub_menu_id = new SelectList(db.Submenus, "id", "name");
-            return View();
+            if (Session["Aloged"] != null)
+            {
+                ViewBag.sub_menu_id = new SelectList(db.Submenus, "id", "name");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+
+
+            
         }
 
         // POST: Admin/Menus/Create
@@ -64,17 +91,24 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Menus/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Menu menu = db.Menus.Find(id);
+                if (menu == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.sub_menu_id = new SelectList(db.Submenus, "id", "name", menu.sub_menu_id);
+                return View(menu);
             }
-            Menu menu = db.Menus.Find(id);
-            if (menu == null)
+            else
             {
-                return HttpNotFound();
-            }
-            ViewBag.sub_menu_id = new SelectList(db.Submenus, "id", "name", menu.sub_menu_id);
-            return View(menu);
+                return RedirectToAction("Login", "AdminAccount");
+            }  
         }
 
         // POST: Admin/Menus/Edit/5
@@ -97,16 +131,23 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Menus/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Menu menu = db.Menus.Find(id);
+                if (menu == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(menu);
             }
-            Menu menu = db.Menus.Find(id);
-            if (menu == null)
+            else
             {
-                return HttpNotFound();
-            }
-            return View(menu);
+                return RedirectToAction("Login", "AdminAccount");
+            } 
         }
 
         // POST: Admin/Menus/Delete/5

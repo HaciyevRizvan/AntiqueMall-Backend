@@ -18,28 +18,52 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Photos
         public ActionResult Index()
         {
-            return View(db.Photos.ToList());
+            if (Session["Aloged"] != null)
+            {
+                return View(db.Photos.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+
         }
 
         // GET: Admin/Photos/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Photo photo = db.Photos.Find(id);
+                if (photo == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(photo);
             }
-            Photo photo = db.Photos.Find(id);
-            if (photo == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(photo);
+  
         }
 
         // GET: Admin/Photos/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["Aloged"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+            
         }
 
         // POST: Admin/Photos/Create
@@ -71,16 +95,24 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Photos/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Photo photo = db.Photos.Find(id);
+                if (photo == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(photo);
             }
-            Photo photo = db.Photos.Find(id);
-            if (photo == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(photo);
+  
         }
 
         // POST: Admin/Photos/Edit/5
@@ -103,16 +135,24 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Photos/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Photo photo = db.Photos.Find(id);
+                if (photo == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(photo);
             }
-            Photo photo = db.Photos.Find(id);
-            if (photo == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(photo);
+   
         }
 
         // POST: Admin/Photos/Delete/5

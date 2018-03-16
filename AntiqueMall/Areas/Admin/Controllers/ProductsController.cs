@@ -17,32 +17,56 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Products
         public ActionResult Index()
         {
-            var products = db.Products.Distinct().Include(p => p.Category).Include(p => p.Photo).Include(p => p.Product_tags).Distinct();
-            return View(products.ToList());
+            if (Session["Aloged"] != null)
+            {
+                var products = db.Products.Distinct().Include(p => p.Category).Include(p => p.Photo).Include(p => p.Product_tags).Distinct();
+                return View(products.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+            
         }
 
         // GET: Admin/Products/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Product product = db.Products.Find(id);
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(product);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(product);
+  
         }
 
         // GET: Admin/Products/Create
         public ActionResult Create()
         {
-            ViewBag.category_id = new SelectList(db.Categories, "id", "Category_Name");
-            ViewBag.photo_id = new SelectList(db.Photos, "photo_id", "photos_path");
-            ViewBag.tag_id = new SelectList(db.Product_tags, "tag_id", "tag_name");
-            return View();
+            if (Session["Aloged"] != null)
+            {
+                ViewBag.category_id = new SelectList(db.Categories, "id", "Category_Name");
+                ViewBag.photo_id = new SelectList(db.Photos, "photo_id", "photos_path");
+                ViewBag.tag_id = new SelectList(db.Product_tags, "tag_id", "tag_name");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+           
         }
 
         // POST: Admin/Products/Create
@@ -68,19 +92,27 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Products/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Product product = db.Products.Find(id);
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.category_id = new SelectList(db.Categories, "id", "Category_Name", product.category_id);
+                ViewBag.photo_id = new SelectList(db.Photos, "photo_id", "photos_path", product.photo_id);
+                ViewBag.tag_id = new SelectList(db.Product_tags, "tag_id", "tag_name", product.tag_id);
+                return View(product);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            ViewBag.category_id = new SelectList(db.Categories, "id", "Category_Name", product.category_id);
-            ViewBag.photo_id = new SelectList(db.Photos, "photo_id", "photos_path", product.photo_id);
-            ViewBag.tag_id = new SelectList(db.Product_tags, "tag_id", "tag_name", product.tag_id);
-            return View(product);
+           
         }
 
         // POST: Admin/Products/Edit/5
@@ -105,16 +137,24 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Products/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Product product = db.Products.Find(id);
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(product);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(product);
+            
         }
 
         // POST: Admin/Products/Delete/5

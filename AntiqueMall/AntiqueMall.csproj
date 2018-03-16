@@ -630,11 +630,6 @@
     <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Most_given_questions\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Most_given_questions\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Most_given_questions\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Most_given_questions\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Most_given_questions\Index.cshtml" />
     <Content Include="Public\css\style.css.map" />
     <Content Include="Public\css\style.scss" />
     <EntityDeploy Include="Models\Model.edmx">
@@ -682,6 +677,11 @@
     <Content Include="Areas\Admin\Public\assets\font-awesome\scss\_rotated-flipped.scss" />
     <Content Include="Areas\Admin\Public\assets\font-awesome\scss\_stacked.scss" />
     <Content Include="Areas\Admin\Public\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Most_given_questions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Most_given_questions\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Most_given_questions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Most_given_questions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Most_given_questions\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

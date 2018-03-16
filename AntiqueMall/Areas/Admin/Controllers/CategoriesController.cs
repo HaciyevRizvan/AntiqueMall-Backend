@@ -17,28 +17,50 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            if (Session["Aloged"] != null)
+            {
+                return View(db.Categories.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
         }
 
         // GET: Admin/Categories/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Category category = db.Categories.Find(id);
+                if (category == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(category);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(category);
+
         }
 
         // GET: Admin/Categories/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["Aloged"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
         }
 
         // POST: Admin/Categories/Create
@@ -61,16 +83,23 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Categories/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Category category = db.Categories.Find(id);
+                if (category == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(category);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            else
             {
-                return HttpNotFound();
-            }
-            return View(category);
+                return RedirectToAction("Login", "AdminAccount");
+            }    
         }
 
         // POST: Admin/Categories/Edit/5
@@ -92,16 +121,23 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Categories/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Category category = db.Categories.Find(id);
+                if (category == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(category);
             }
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            else
             {
-                return HttpNotFound();
-            }
-            return View(category);
+                return RedirectToAction("Login", "AdminAccount");
+            }   
         }
 
         // POST: Admin/Categories/Delete/5

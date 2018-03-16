@@ -17,22 +17,39 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Send_question
         public ActionResult Index()
         {
-            return View(db.Send_question.ToList());
+            if (Session["Aloged"] != null)
+            {
+                return View(db.Send_question.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
+
+            
         }
 
         // GET: Admin/Send_question/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Send_question send_question = db.Send_question.Find(id);
+                if (send_question == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(send_question);
             }
-            Send_question send_question = db.Send_question.Find(id);
-            if (send_question == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(send_question);
+ 
         }
 
         // GET: Admin/Send_question/Create
@@ -92,16 +109,26 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/Send_question/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+
+            if (Session["Aloged"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Send_question send_question = db.Send_question.Find(id);
+                if (send_question == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(send_question);
             }
-            Send_question send_question = db.Send_question.Find(id);
-            if (send_question == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "AdminAccount");
             }
-            return View(send_question);
+
+            
         }
 
         // POST: Admin/Send_question/Delete/5
