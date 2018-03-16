@@ -179,8 +179,10 @@ $(document).ready(function () {
             contentType: "Html",
             success: function (res){
                 $("#add").append(res)
+                $(".wishlistBox").show();
                 $(".itemB p").css({ "display": "none" }); 
                 $(".main").css({ "display": "block" }); 
+                return false;
 
             }
         })
@@ -204,7 +206,22 @@ $(document).ready(function () {
             }
         })
     });
- 
+
+   
+
+    var index = $(".main").length;
+    $(".wishlist").click(function () {
+        index++;
+        $(".wishlistBox").show();
+        $(".itemNumber").length += index;
+        return false;
+    })
+    $(window).scroll(function () {
+      $(".wishlistBox").hide(100);
+    })
+    
+    
+   
     //---------------------------------------- resize function--------------------------------//
     function sliderInit() {
         slideC = $(".slide_c img").width($(".slider").width());

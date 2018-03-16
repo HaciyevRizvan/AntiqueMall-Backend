@@ -12,13 +12,13 @@ namespace AntiqueMall.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Admin
+    public partial class Adminsp
     {
         public int id { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public string photo { get; set; }
         public string email { get; set; }
-        public byte[] password { get; set; }
+        public string password { get; set; }
     }
 }

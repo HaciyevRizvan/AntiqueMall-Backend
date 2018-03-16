@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AnticDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Admin">
+  <EntityType Name="Aboutf">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aboutem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="icontitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="icontext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Adminsp">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -9,7 +23,7 @@
     <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="password" Type="Binary" MaxLength="50" FixedLength="true" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Billing">
     <Key>
@@ -341,6 +355,20 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="profession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="persinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="user">
     <Key>
       <PropertyRef Name="id" />
@@ -597,7 +625,8 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="AnticDataEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Aboutfs" EntityType="Self.Aboutf" />
+    <EntitySet Name="Adminsps" EntityType="Self.Adminsp" />
     <EntitySet Name="Billings" EntityType="Self.Billing" />
     <EntitySet Name="Blogs" EntityType="Self.Blog" />
     <EntitySet Name="BotTexts" EntityType="Self.BotText" />
@@ -625,6 +654,7 @@
     <EntitySet Name="StartSellings" EntityType="Self.StartSelling" />
     <EntitySet Name="Submenus" EntityType="Self.Submenu" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
     <EntitySet Name="users" EntityType="Self.user" />
     <EntitySet Name="vaseselects" EntityType="Self.vaseselect" />
     <AssociationSet Name="FK_Billing_Cart" Association="Self.FK_Billing_Cart">
@@ -703,35 +733,5 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="select" EntitySet="selects" />
     </AssociationSet>
-    <EntitySet Name="Aboutfs" EntityType="AnticDataModel.Aboutf" />
-    <EntitySet Name="Teams" EntityType="AnticDataModel.Team" />
   </EntityContainer>
-  <EntityType Name="Aboutf">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Aboutem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="icontitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="icontext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="Team">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="emtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="emphoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="profession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="persinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
 </Schema>

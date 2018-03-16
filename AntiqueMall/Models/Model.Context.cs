@@ -25,7 +25,8 @@ namespace AntiqueMall.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Aboutf> Aboutfs { get; set; }
+        public virtual DbSet<Adminsp> Adminsps { get; set; }
         public virtual DbSet<Billing> Billings { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<BotText> BotTexts { get; set; }
@@ -53,9 +54,8 @@ namespace AntiqueMall.Models
         public virtual DbSet<StartSelling> StartSellings { get; set; }
         public virtual DbSet<Submenu> Submenus { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<vaseselect> vaseselects { get; set; }
-        public virtual DbSet<Aboutf> Aboutfs { get; set; }
-        public virtual DbSet<Team> Teams { get; set; }
     }
 }

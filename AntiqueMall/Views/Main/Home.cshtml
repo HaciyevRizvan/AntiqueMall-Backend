@@ -93,7 +93,6 @@
                 <!-- all products -->
                 @foreach (Product item in ViewBag.allproduct)
                 {
-
                     <div class="col-md-3 col-sm-6 col-xs-12 paddg all">
                         <a href="http://localhost:51618/Main/Categories">
                             <div class="antic">
@@ -119,7 +118,7 @@
                                                 <i class="fa fa-refresh"></i>
                                             </a>
                                         </li>
-                                        <li>
+                                        <li  dataset="@item.product_id" class="addItem wishlist">
                                             <a href="#">
                                                 <i class="fa fa-heart-o" aria-hidden="true"></i>
                                             </a>
@@ -165,12 +164,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist">
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -208,12 +207,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist"> 
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -249,12 +248,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist">
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -292,12 +291,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist" >
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -315,12 +314,18 @@
             View More
             <i class="fa fa-angle-double-right right" aria-hidden="true"></i>
         </a>
+        <div class="wishlistBox">
+            <p>Product Added!</p>
+        </div>
         <div class="compare" id="choos">
  
         </div>
         <div class="quickview" id="Selec">
 
         </div>
+
+       
+   
     </section>
     <section id="banner">
         <div class="container">
@@ -453,12 +458,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist">
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -496,12 +501,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist">
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -537,12 +542,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist">
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -566,9 +571,10 @@
                                 </h4>
                                 <p>$@item.product_price.00</p>
                             </div>
+                            
                             <div class="box">
                                 <ul>
-                                    <li>
+                                    <li dataset="@item.product_id" class="fQuickview">>
                                         <a href="#">
                                             <i class="fa fa-search"></i>
                                         </a>
@@ -578,12 +584,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist">
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -619,12 +625,12 @@
                                             <i class="fa fa-refresh"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem wishlist">
                                         <a href="#">
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li dataset="@item.product_id" class="addItem">
                                         <a href="#">
                                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                                         </a>
@@ -644,7 +650,9 @@
         <div class="quickview" id="Selec">
 
         </div>
-
+        <div class="wishlistBox">
+            <p>Product Added!</p>
+        </div>
     </section>
     <section id=gallery>
         <div class="container">

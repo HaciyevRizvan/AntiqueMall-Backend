@@ -1,9 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AnticDataModelStoreContainer" CdmEntityContainer="AnticDataEntities">
-    <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="AnticDataModel.Admin">
-        <MappingFragment StoreEntitySet="Admin">
+    <EntitySetMapping Name="Aboutfs">
+      <EntityTypeMapping TypeName="AnticDataModel.Aboutf">
+        <MappingFragment StoreEntitySet="Aboutf">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Aboutem" ColumnName="Aboutem" />
+          <ScalarProperty Name="emphoto" ColumnName="emphoto" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="icontitle" ColumnName="icontitle" />
+          <ScalarProperty Name="icontext" ColumnName="icontext" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adminsps">
+      <EntityTypeMapping TypeName="AnticDataModel.Adminsp">
+        <MappingFragment StoreEntitySet="Adminsp">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="surname" ColumnName="surname" />
@@ -335,6 +350,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="AnticDataModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="emtitle" ColumnName="emtitle" />
+          <ScalarProperty Name="emphoto" ColumnName="emphoto" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="persinfo" ColumnName="persinfo" />
+          <ScalarProperty Name="link" ColumnName="link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="AnticDataModel.user">
         <MappingFragment StoreEntitySet="users">
@@ -356,36 +386,6 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="category" ColumnName="category" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Aboutfs">
-      <EntityTypeMapping TypeName="AnticDataModel.Aboutf">
-        <MappingFragment StoreEntitySet="Aboutf">
-          <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="icontext" ColumnName="icontext" />
-          <ScalarProperty Name="icontitle" ColumnName="icontitle" />
-          <ScalarProperty Name="icon" ColumnName="icon" />
-          <ScalarProperty Name="text" ColumnName="text" />
-          <ScalarProperty Name="emphoto" ColumnName="emphoto" />
-          <ScalarProperty Name="Aboutem" ColumnName="Aboutem" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Teams">
-      <EntityTypeMapping TypeName="AnticDataModel.Team">
-        <MappingFragment StoreEntitySet="Team">
-          <ScalarProperty Name="link" ColumnName="link" />
-          <ScalarProperty Name="persinfo" ColumnName="persinfo" />
-          <ScalarProperty Name="profession" ColumnName="profession" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="emphoto" ColumnName="emphoto" />
-          <ScalarProperty Name="emtitle" ColumnName="emtitle" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

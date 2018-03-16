@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AntiqueMall.Models;
+using System.Net;
+
 namespace AntiqueMall.Controllers
 {
     public class MainController : Controller
@@ -214,6 +216,22 @@ namespace AntiqueMall.Controllers
             return View();
         }
         public ActionResult UserPage()
+        {
+            return View();
+        }
+        public ActionResult UserOrders()
+        {
+            return View();
+        }
+        public ActionResult UserDownloads()
+        {
+            return View();
+        }
+        public ActionResult UserAdress()
+        {
+            return View();
+        }
+        public ActionResult BillingAdressEdit()
         {
             return View();
         }

@@ -11,7 +11,14 @@ namespace AntiqueMall.Areas.Admin.Controllers
         // GET: Admin/AdminC
         public ActionResult Index()
         {
-            return View();
+            if(Session["Aloged"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
         }
     }
 }

@@ -14,7 +14,7 @@
     <Property Name="photo" Type="nvarchar(max)" />
     <Property Name="title" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="Admin">
+  <EntityType Name="Adminsp">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -23,7 +23,7 @@
     <Property Name="surname" Type="nvarchar" MaxLength="50" />
     <Property Name="photo" Type="nvarchar" MaxLength="50" />
     <Property Name="email" Type="nvarchar" MaxLength="50" />
-    <Property Name="password" Type="binary" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Billing">
     <Key>
@@ -588,7 +588,7 @@
   </Association>
   <EntityContainer Name="AnticDataModelStoreContainer">
     <EntitySet Name="Aboutf" EntityType="Self.Aboutf" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Adminsp" EntityType="Self.Adminsp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Billing" EntityType="Self.Billing" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BotText" EntityType="Self.BotText" Schema="dbo" store:Type="Tables" />

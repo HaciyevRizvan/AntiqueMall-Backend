@@ -764,7 +764,22 @@ body {
 
 #gallery {
   padding-top: 70px;
-  text-align: center; }
+  text-align: center; 
+  position:relative;
+}
+    #gallery .wishlistBox {
+        position: absolute;
+        text-align: center;
+        border: 1px solid gray;
+        padding: 30px;
+        width: 210px;
+        border-radius: 7px;
+        top: 54%;
+        left: 43%;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        display:none;
+    }
   #gallery .text {
     text-align: center; }
     #gallery .text h3 {
@@ -796,7 +811,8 @@ body {
         background: #ebe7e7;
         display: inline-block;
         border: 1px solid #ebe7e7;
-        padding: 8px 15px;
+        padding: 8px 20px;
+        margin:0px 7px;
         border-radius: 20px;
         color: black;
         text-decoration: none;
@@ -3811,12 +3827,18 @@ body {
 
 #check .foldable_check {
   width: 100%; }
+#check .foldable_check ul li .Obtn_res{
+     background:#993816;border:1px solid #993816;border-radius:20px;padding:10px 20px;
+    font-size:17px;font-weight:400;float:right;color:white;border-radius:50px;margin-left:10px;
+}
   #check .foldable_check ul {
     padding: 0px;
     margin-top: 60px; }
     #check .foldable_check ul .hidden_li {
       border-top: 3px solid red;
-      display: none; }
+      display: none; 
+      position:relative;
+    }
       #check .foldable_check ul .hidden_li i {
         color: red; }
       #check .foldable_check ul .hidden_li span:hover {
@@ -3841,7 +3863,7 @@ body {
       border: 1px solid #eff2f7;
       background-color: #eff2f7;
       margin-top: 5px;
-      padding: 15px 0px 15px 15px;
+      padding: 15px 0px 50px 15px;
       font-size: 15px; }
     #check .foldable_check ul li i {
       margin-right: 20px;
@@ -3883,6 +3905,8 @@ body {
       color: #993816;
       cursor: pointer; }
 #userPage .userDesc{padding:20px;}
+#userPage .userDesc address{float:left;margin-top:50px;}
+#userPage .userDesc .shiping{margin-left:50px;}
 #userPage .userDesc h5{margin-bottom:15px;}
 #userPage .userDesc a{color:gray;text-decoration:none;cursor:pointer;text-decoration:none;}
 #userPage .userDesc a:hover{color:#c74a1d;}
@@ -3906,7 +3930,9 @@ body {
     outline: none; }
   #BillingDetails .largeB p {
     color: #676c77;
-    margin-top: 30px; }
+    margin-top: 30px; 
+    float:left;
+  }
   #BillingDetails .largeB h3 {
     margin-top: 20px;
     font-size: 20px;
@@ -3916,6 +3942,7 @@ body {
     width: 100%;
     padding-left: 5px;
     border: 1px solid lightgray;
+    float:left;
     outline: none; }
   #BillingDetails .largeB textarea {
     width: 100%; }

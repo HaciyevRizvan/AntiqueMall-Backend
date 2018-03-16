@@ -8,22 +8,22 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="#">Dashboard</a>
+                                @Html.ActionLink("Dashboard", "UserPage", "Main")
                             </li>
                             <li>
-                                <a href="#">Oreders</a>
+                                @Html.ActionLink("Orders", "UserOrders", "Main")
                             </li>
                             <li>
-                                <a href="#">Downloads</a>
+                                @Html.ActionLink("Downloads", "UserDownloads", "Main")
                             </li>
                             <li>
-                                <a href="#">Addresses</a>
+                                @Html.ActionLink("Addresses", "UserAdress", "Main")
                             </li>
                             <li>
-                                <a href="#">Account details</a>
+                                @Html.ActionLink("Account details", "UserDetails", "Main")
                             </li>
                             <li>
-                                <a href="#">Logout</a>
+                                @Html.ActionLink("Logout", "Home", "Main")
                             </li>
                         </ul>
                     </nav>
