@@ -72,9 +72,8 @@ $(document).ready(function () {
     $(".s_search").click(function () {
         $(".search_page").fadeIn(400);
     })
-
     $(window).click(function (event) {
-        if (event.target.className == "registr_page" || event.target.className == "login_page" || event.target.className == "reset_page" || event.target.className == "search_page") {
+        if (event.target.className == "registr_page" || event.target.className == "login_page" || event.target.className == "reset_page" || event.target.className == "search_page"){
             $(".registr_page").fadeOut(500);
             $(".login_page").fadeOut(500);
             $(".reset_page").fadeOut(500);
@@ -86,6 +85,7 @@ $(document).ready(function () {
     $("#log").click(function () {
         var username = $(".username").val();
         var password = $(".password").val();
+       
         if (username != null && password != null) {
             $.ajax({
                 type: "Get",
@@ -96,15 +96,17 @@ $(document).ready(function () {
                 url: "http://localhost:51618/Main/CheckLog",
                 contentType: "Html",
                 success: function (re) {
-
                     return JavaScript("location.reload(true)");
                 }
+                
 
-
-            })
+            })  
+        }
+        else {
+            $(".hidden_p").show();
         }
         
-        $(".hidden_p").show();
+        
     })
    
     // ----------------------------compare----------------------------------
@@ -181,11 +183,31 @@ $(document).ready(function () {
                 $("#add").append(res)
                 $(".wishlistBox").show();
                 $(".itemB p").css({ "display": "none" }); 
-                $(".main").css({ "display": "block" }); 
-                return false;
-
+                $(".main").css({ "display": "block" });
+                
             }
         })
+       
+        if ($(".static").text().length >=0) {
+            $(".main").prev().children().css({ "display": "none" })
+            $(".main").next().children().css({ "display": "none" })
+        }
+    });
+    $(".addItem").click(function () {
+        var a = $(this).attr("dataset");
+        $.ajax({
+            type: "Get",
+            data: {
+                prod: a,
+            },
+            url: "http://localhost:51618/Main/ViewCart/",
+            contentType: "Html",
+            success: function (res) {
+                $("#addView").append(res);
+                
+            }
+        })
+        return false;
     });
     $(".main i").click(function () {
         alert("clicked")
@@ -566,7 +588,7 @@ $(".checkB").click(function(){
         $("#slider .text li:nth-child(17)").css({ "transform": "rotate(0deg)", "transition": "1.31s", })
         $("#slider .text li:nth-child(18)").css({ "transform": "rotate(0deg)", "transition": "1.29s", })
         $("#slider .text li:nth-child(19)").css({ "transform": "rotate(0deg)", "transition": "1.31s", })
-        return false;
+       
     }
     setInterval(function () {
         if (index == images.length - 1) {
@@ -640,18 +662,6 @@ for (a = 0; a < btn.length; a++) {
     });
 }
 
-var rangeV = document.getElementById("fRange");
-var rangeV1 = document.getElementById("fRange1");
-var result = document.getElementById("from");
-var result1 = document.getElementById("to");
-result.innerHTML = rangeV.value;
-result1.innerHTML = rangeV1.value;
 
-rangeV.oninput = function () {
-    result.innerHTML = this.value;
-}
-rangeV1.oninput = function () {
-    result1.innerHTML = this.value;
-}
 
 

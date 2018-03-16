@@ -187,3 +187,18 @@
 
     </div>
 </section>
+<script>
+var rangeV = document.getElementById("fRange");
+var rangeV1 = document.getElementById("fRange1");
+var result = document.getElementById("from");
+var result1 = document.getElementById("to");
+result.innerHTML = rangeV.value;
+result1.innerHTML = rangeV1.value;
+
+rangeV.oninput = function () {
+            result.innerHTML = this.value
+        }
+        rangeV1.oninput = function () {
+            result1.innerHTML = this.value
+        }
+</script>

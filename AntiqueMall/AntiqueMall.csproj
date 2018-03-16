@@ -835,12 +835,13 @@
     <Content Include="Views\Main\HelloWorld.cshtml" />
     <Content Include="Views\Shared\QuickView.cshtml" />
     <Content Include="Views\Shared\itemPartial.cshtml" />
-    <Content Include="Views\Main\viewCart.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Main\UserOrders.cshtml" />
     <Content Include="Views\Main\UserDownloads.cshtml" />
     <Content Include="Views\Main\UserAdress.cshtml" />
     <Content Include="Views\Main\BillingAdressEdit.cshtml" />
+    <Content Include="Views\Shared\ViewCart.cshtml" />
+    <Content Include="Views\Main\viewCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

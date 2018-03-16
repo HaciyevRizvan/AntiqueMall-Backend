@@ -8,7 +8,9 @@ body{margin:0px;font-family: 'Roboto', sans-serif;h1,h2,h3,h4,h5,h6{margin:0;}ul
 .itemB{width: 42%;height:79px;border:1px solid rgb(236, 232, 232);position:relative;z-index:1;
     background: white;text-align: left;position: absolute;right: 45px;margin-top:12px;
     box-shadow: 3px 3px 10px -2px #5c5c5c;transition:1s ease;
-    color:#993816;border-radius:3px;display:none;.main{{position:absolute;margin:20px 0px 0px 13px;z-index:0;}}}}
+    color:#993816;border-radius:3px;display:none;.main{{position:absolute;margin:20px 0px 0px 13px;z-index:0;}}
+	.static{display:block;}
+	}}
 li{display:inline-block;border-right:1px solid lightgray;margin:0 10px;padding-right:17px;
 i{color:gray;font-size:14.5px;.pencile{cursor:pointer;}}.pencile{cursor:pointer;}.signin{cursor:pointer;}.s_search{cursor:pointer;}
 a{color:gray;text-decoration:none;&:hover{text-decoration:none;color:hsl(16, 75%, 34%);transform:1s ease;}

@@ -43,6 +43,8 @@ body {
       transition: 1s ease;
       color: #993816;
       border-radius: 3px;
+      overflow-y:scroll;
+      overflow-x:hidden;
       display:none;
       padding-bottom:29px;
       }
@@ -80,7 +82,7 @@ body {
             margin-bottom:50px;
         }
         #first_list ul .latest_l .itemB .main {
-            display:none;
+            display:block;
         }
         #first_list ul .latest_l .itemB .main i {
             font-size: 20px;
@@ -94,8 +96,9 @@ body {
             top: 35px;
         }
         #first_list ul .latest_l .itemB .static{
-           display:none;
+           display:block;
         }
+
         #first_list ul .latest_l .itemB  .btn_res {
             background: #993816;
             border: 1px solid #993816;
@@ -688,7 +691,7 @@ body {
         margin: 20px 0px 20px 0px;
         color: white;
         width: 50%;
-        margin-left: 25%;
+        margin-left: 27%;
         margin-right: 30%;
         animation-name: slightSpeedIn;
         animation-duration: 1s; }
@@ -3823,7 +3826,8 @@ body {
   #viewCart .total {
     padding-bottom: 10px;
     color: #676c77;
-    font-size: 21px; }
+    font-size: 20px;
+    }
 
 #check .foldable_check {
   width: 100%; }

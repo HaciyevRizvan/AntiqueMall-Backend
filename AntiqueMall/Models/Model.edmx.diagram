@@ -46,7 +46,13 @@
         <AssociationConnector Association="AnticDataModel.FK_comments_users" ManuallyRouted="false" />
         <AssociationConnector Association="AnticDataModel.FK_menu_Submenu" ManuallyRouted="false" />
         <AssociationConnector Association="AnticDataModel.FK_Order_s_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="AnticDataModel.FK_Order_s_users" ManuallyRouted="false" />
+        <AssociationConnector Association="AnticDataModel.FK_Order_s_users" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7.25" PointY="3.8840950520833331" />
+          <ConnectorPoint PointX="7.25" PointY="4.48605353227474" />
+          <ConnectorPoint PointX="7.4270833333333339" PointY="4.48605353227474" />
+          <ConnectorPoint PointX="7.4270833333333339" PointY="9.4117211328125059" />
+          <ConnectorPoint PointX="8.25" PointY="9.4117211328125059" />
+        </AssociationConnector>
         <AssociationConnector Association="AnticDataModel.FK_Products_Photos" ManuallyRouted="false" />
         <AssociationConnector Association="AnticDataModel.FK_Products_Product_tags" ManuallyRouted="false" />
         <AssociationConnector Association="AnticDataModel.FK_Products_Products" ManuallyRouted="false" />

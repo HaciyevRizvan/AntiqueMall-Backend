@@ -921,7 +921,7 @@
           <Property Name="em_photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="product_price" Type="Decimal" />
           <Property Name="category_id" Type="Int32" />
           <Property Name="availability" Type="Boolean" />
           <Property Name="tag_id" Type="Int32" />

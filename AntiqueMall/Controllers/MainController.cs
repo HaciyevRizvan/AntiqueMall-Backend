@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AntiqueMall.Models;
 using System.Net;
+using System.Data.Entity;
 
 namespace AntiqueMall.Controllers
 {
@@ -18,6 +19,7 @@ namespace AntiqueMall.Controllers
             var linq = db.users.Where(m => m.password == pass && m.name == use).FirstOrDefault();
             if (linq != null)
             {
+                Session["loged"] = true;
                 Session["username"] = use;
                 return JavaScript("window.location = 'http://localhost:51618/Main/UserPage'");
             }
@@ -25,6 +27,11 @@ namespace AntiqueMall.Controllers
             {
                 return Content("All Fields are required");
             }
+        }
+        public ActionResult outlog()
+        {
+            Session["loged"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Home1(string prod)
         {
@@ -44,6 +51,13 @@ namespace AntiqueMall.Controllers
             int a = Convert.ToInt32(prod);
             Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
             return PartialView("itemPartial", list);
+        }
+
+        public ActionResult itemAddView(string prod)
+        {
+            int a = Convert.ToInt32(prod);
+            Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
+            return PartialView("ViewCart", list);
         }
         public ActionResult remove(string prod)
         {
@@ -267,6 +281,7 @@ namespace AntiqueMall.Controllers
         }
         public ActionResult viewCart()
         {
+            ViewBag.product = db.Products.OrderByDescending(a => a.product_id).ToList().Distinct();
             return View();
         }
         public ActionResult Contact()
