@@ -59,12 +59,6 @@ namespace AntiqueMall.Controllers
             Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
             return PartialView("ViewCart", list);
         }
-        public ActionResult remove(string prod)
-        {
-            int a = Convert.ToInt32(prod);
-            Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
-            return PartialView("itemPartial", list);
-        }
         public ActionResult Home()
         {
             ViewBag.slider = db.Sliders.ToList();

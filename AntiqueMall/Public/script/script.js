@@ -98,15 +98,11 @@ $(document).ready(function () {
                 success: function (re) {
                     return JavaScript("location.reload(true)");
                 }
-                
-
             })  
         }
         else {
             $(".hidden_p").show();
-        }
-        
-        
+        }  
     })
    
     // ----------------------------compare----------------------------------
@@ -209,28 +205,7 @@ $(document).ready(function () {
         })
         return false;
     });
-    $(".main i").click(function () {
-        alert("clicked")
-        var a = $(this).attr("dataset");
-        $.ajax({
-            type: "Get",
-            data: {
-                prod: a,
-            },
-            url: "http://localhost:51618/Main/remove/",
-            contentType: "Html",
-            success: function (res) {
-                $("#add").hide(res)
-                $(".main").css({ "display": "none" });
-                if ($("#add").innerHTML == null) {
-                    $(".itemB p").css({ "display": "block" });
-                }
-            }
-        })
-    });
-
-   
-
+ 
     var index = $(".main").length;
     $(".wishlist").click(function () {
         index++;
