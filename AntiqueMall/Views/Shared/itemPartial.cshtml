@@ -31,6 +31,7 @@
     $(document).ready(function () {
         $(".main i").click(function () {
             $(this).parent().first().remove()
+            $('.latest_l .itemnumber')[0].innerHTML = $(".main i").length - 0;
             if ($(".main i").length < 1) {
                 $(".itemB .static").css({ "display": "none" })
                 $(".itemB p").css({ "display": "block" }); 

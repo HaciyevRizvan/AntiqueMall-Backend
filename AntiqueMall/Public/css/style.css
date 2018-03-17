@@ -3837,7 +3837,7 @@ body {
 }
   #check .foldable_check ul {
     padding: 0px;
-    margin-top: 60px; }
+    margin-top: 0px; }
     #check .foldable_check ul .hidden_li {
       border-top: 3px solid red;
       display: none; 
