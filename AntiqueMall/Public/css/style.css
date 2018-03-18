@@ -43,10 +43,9 @@ body {
       transition: 1s ease;
       color: #993816;
       border-radius: 3px;
-      overflow-y:scroll;
-      overflow-x:hidden;
       display:none;
       padding-bottom:29px;
+      overflow:auto;
       }
 
         #first_list ul .latest_l .itemB img {

@@ -5,7 +5,7 @@ body{margin:0px;font-family: 'Roboto', sans-serif;h1,h2,h3,h4,h5,h6{margin:0;}ul
 }
 #first_list{ul{padding:0px;list-style:none;float:right;padding-top:4%;
 .latest_l{border-right:none;height:2.5em;i{font-size:15px;}&:hover{.itemB{display:block;transition:2s ease-out;}}
-.itemB{width: 42%;height:79px;border:1px solid rgb(236, 232, 232);position:relative;z-index:1;
+.itemB{width: 42%;height:auto;border:1px solid rgb(236, 232, 232);position:relative;z-index:1;
     background: white;text-align: left;position: absolute;right: 45px;margin-top:12px;
     box-shadow: 3px 3px 10px -2px #5c5c5c;transition:1s ease;
     color:#993816;border-radius:3px;display:none;.main{{position:absolute;margin:20px 0px 0px 13px;z-index:0;}}

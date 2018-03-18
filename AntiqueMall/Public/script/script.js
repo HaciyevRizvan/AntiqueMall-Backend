@@ -158,9 +158,10 @@ $(document).ready(function () {
             contentType: "Html",
             success: function (res){
                 $("#add").append(res)
-                $(".wishlistBox").fadeIn().fadeOut(1300).css({"z-index":"9999"});
+                $(".wishlistBox").fadeIn().fadeOut(900).css({"z-index":"9999"});
                 $(".itemB p").css({ "display": "none" }); 
                 $(".main").css({ "display": "block" });
+                $(".itemB").css({ "opacity": "1" });
                 
             }
         })
