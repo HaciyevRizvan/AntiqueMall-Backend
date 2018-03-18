@@ -19,7 +19,7 @@
 </div>
 <div class="static">
     <hr>
-    <h5>Subtotal: $@Model.product_price.00</h5>
+    <h5>Subtotal:$@Model.product_price.00</h5>
     <hr>
     <span>
     @Html.ActionLink("ViewCart", "viewCart","Main" ,new {@class= "btn btn-success btn-responsive btn_res" })
@@ -31,14 +31,15 @@
     $(document).ready(function () {
         $(".main i").click(function () {
             $(this).parent().first().remove()
-            $('.latest_l .itemnumber')[0].innerHTML = $(".main i").length - 0;
+            $(".latest_l .itemnumber")[0].innerHTML = $(".main i").length - 0;
             if ($(".main i").length < 1) {
                 $(".itemB .static").css({ "display": "none" })
                 $(".itemB p").css({ "display": "block" }); 
             }
         });
    
-        $('.latest_l .itemnumber')[0].innerHTML =+ $(".main i").length;
+        $(".latest_l .itemnumber")[0].innerHTML = + $(".main i").length;
+
     })
    
     </script>
