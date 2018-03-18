@@ -57,4 +57,13 @@
     </div>
     <i class="fa fa-times close_r" aria-hidden="true"></i>
 </div>
-<script src="~/Public/script/script.js"></script> 
+<script>
+    $(document).ready(function () {
+        $(".removeV").click(function () {
+            $(".visibleBox").hide();
+            $(".visLeft").hide();
+            $(".noproduct").fadeIn(400);
+        })
+    })
+
+</script>

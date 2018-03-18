@@ -1,4 +1,5 @@
-﻿@using AntiqueMall.Models;
+﻿
+@using AntiqueMall.Models;
 
 <div class="bord">
     <div class="reg">
@@ -139,4 +140,32 @@
     </div>
     <i class="fa fa-times close_r" aria-hidden="true"></i>
 </div>
-<script src="~/Public/script/script.js"></script> 
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" 
+ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous">
+</script>
+
+    <script >
+        $(document).ready(function () {
+            $(".fQuickview").click(function () {
+                var a = $(this).attr("dataset");
+                $.ajax({
+                    type: "Get",
+                    data: {
+                        prod: a,
+                    },
+                    url: "http://localhost:51618/Main/view/",
+                    contentType: "Html",
+                    success: function (res) {
+                        $("#Selec").html(res)
+
+                    }
+                })
+            })
+
+            $(".close_r").click(function () {
+                $("#Selec").fadeOut();
+            })
+        });
+    </script>

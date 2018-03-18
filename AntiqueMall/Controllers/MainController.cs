@@ -41,7 +41,7 @@ namespace AntiqueMall.Controllers
         }
         public ActionResult view(string prod)
         {
-            ViewBag.product = db.Products.Distinct().OrderByDescending(c => c.product_type).ToList().Take(5);
+            ViewBag.product = db.Products.OrderByDescending(c => c.product_type).Distinct().ToList().Take(5);
             int a = Convert.ToInt32(prod);
             Product list = db.Products.Where(n => n.product_id == a).FirstOrDefault();
             return PartialView("QuickView", list);
@@ -276,6 +276,7 @@ namespace AntiqueMall.Controllers
         public ActionResult viewCart()
         {
             ViewBag.product = db.Products.OrderByDescending(a => a.product_id).ToList().Distinct();
+            
             return View();
         }
         public ActionResult Contact()
